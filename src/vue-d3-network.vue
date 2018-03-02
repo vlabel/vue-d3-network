@@ -261,6 +261,7 @@ export default {
         // source and target for d3
         link.source = link.sid
         link.target = link.tid
+        link.strength = link.strength
         if (!link.id) vm.$set(link, 'id', 'link-' + index)
         return link
       })
@@ -289,7 +290,7 @@ export default {
         sim.force('charge', d3.forceManyBody().strength(-this.force))
       }
       if (forces.Link !== false) {
-        sim.force('link', d3.forceLink(links).id(function (d) { return d.id }))
+        sim.force('link', d3.forceLink(links).id(function (d) { return d.id }).strength(function(t) {return t.strength}))
       }
       sim = this.setCustomForces(sim)
       sim = this.itemCb(this.simCb, sim)
