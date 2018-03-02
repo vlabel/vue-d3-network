@@ -18,7 +18,6 @@
           :id="link.id"
           @click='emit("linkClick",[$event,link])'
           @touchstart.passive='emit("linkClick",[$event,link])'
-          :stroke-width='linkWidth'
           :class='linkClass(link.id)'
           :style='linkStyle(link)'
           v-bind='link._svgAttrs')
