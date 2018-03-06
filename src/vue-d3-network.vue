@@ -275,7 +275,7 @@ export default {
       let forces = this.forces
       let sim = d3.forceSimulation()
         .stop()
-        .alpha(0.5)
+        .alpha(0.9)
         // .alphaMin(0.05)
         .nodes(nodes)
 
@@ -331,7 +331,7 @@ export default {
       if (this.dragging !== false) {
         if (this.nodes[this.dragging]) {
           this.simulation.restart()
-          this.simulation.alpha(0.5)
+          this.simulation.alpha(0.9)
           this.nodes[this.dragging].fx = pos.x - this.mouseOfst.x
           this.nodes[this.dragging].fy = pos.y - this.mouseOfst.y
         }
@@ -348,7 +348,7 @@ export default {
       this.dragging = (nodeKey === false) ? false : nodeKey
       this.setMouseOffset(event, this.nodes[nodeKey])
       if (this.dragging === false) {
-        this.simulation.alpha(0.1)
+        this.simulation.alpha(0.9)
         this.simulation.restart()
         this.setMouseOffset()
       }
