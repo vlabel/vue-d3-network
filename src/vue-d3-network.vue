@@ -290,7 +290,7 @@ export default {
         sim.force('charge', d3.forceManyBody().strength(-this.force))
       }
       if (forces.Link !== false) {
-        sim.force('link', d3.forceLink(links).id(function (d) { return d.id }).strength(function(t) {return t.strength}))
+        sim.force('link', d3.forceLink(links).id(function (d) { return d.id }).strength(function(t) {return t.strength}).distance(function distance() {return 130;}))
       }
       sim = this.setCustomForces(sim)
       sim = this.itemCb(this.simCb, sim)
